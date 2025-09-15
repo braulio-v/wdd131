@@ -16,14 +16,12 @@ header {
 }
 
 h1 {
-    padding-top: 8px;
-}
-
-h1,h2 {
     background-color: var(--primary-color);
+    padding-top: 23px;
     text-align: center;
     color: white;
 }
+
 
 header nav ul {
     background-color: var(--secondary-color);
@@ -85,7 +83,16 @@ main {
     text-align: center;
 }
 
-
+.card h4{
+    background-color: var(--primary-color);
+    margin: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 10px;
+    color: var(--light-color);
+    text-align: center;
+    font-size: 22px;
+}
 
 .card1 img {
     width: 120px;
