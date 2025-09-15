@@ -16,12 +16,14 @@ header {
 }
 
 h1 {
+    padding-top: 8px;
+}
+
+h1,h2 {
     background-color: var(--primary-color);
-    padding-top: 23px;
     text-align: center;
     color: white;
 }
-
 
 header nav ul {
     background-color: var(--secondary-color);
