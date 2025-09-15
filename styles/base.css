@@ -29,6 +29,7 @@ header nav ul {
     flex-direction: row;
     justify-content: space-around;
     padding: 20px;
+    list-style-type: none;
 }
 
 header nav a {
@@ -38,8 +39,10 @@ header nav a {
     
 }
 
- nav a :hover{
+nav a:hover {
     border: 1px solid #fff;
+    background-color: #224870;
+    padding: 10px;
 }
 
 main {
@@ -70,7 +73,7 @@ main {
     border: 1px solid black;
 }
 
-.card h3 {
+.card h2 {
     background-color: var(--primary-color);
     margin: 0;
     border-top-left-radius: 10px;
@@ -127,15 +130,11 @@ main {
     width: 700px;
     background-color: gray;   
     border-radius: 2px;
-    margin: 1.25rem/0;
+    margin: 1.25rem 1.25rem;
    
 }
 
-   /* margin-top: .35rem;
-   font-size: .9rem;
-   font-style: italic;
-   color: #6b6b6b;
-   margin-left: 20px;*/
+
 .img figcaption{
    margin-top: .35rem;
    font-size: .9rem;
@@ -148,7 +147,7 @@ main {
     grid-column: 2/3;
 }
 
-.card h4 {
+.card h3 {
     text-align: center;
 
 }
