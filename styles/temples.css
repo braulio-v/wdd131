@@ -85,8 +85,11 @@
     content: "X";
 }
 
-main h1 {
+main h2 {
     text-align: center;
+    margin-top: 20px;
+    font-family: Roboto, arial;
+    font-size: 30px;
 }
 
 .temple-gallery {
