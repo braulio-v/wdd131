@@ -1,0 +1,8 @@
+ @media (min-width: 800px) {
+    .nav-container p {
+        font-size: 2rem;
+    }
+    .navigation a {
+        padding: 2rem;
+    }
+}
