@@ -1,0 +1,14 @@
+@media (min-width: 800px) {
+    .nav-container h1 {
+        font-size: 2rem;
+    }
+
+    .navigation a {
+        padding: 2rem;
+    }
+}
+@media (min-width: 1024px) {
+    .temple-gallery {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
