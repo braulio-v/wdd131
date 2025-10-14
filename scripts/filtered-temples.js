@@ -103,11 +103,11 @@ const temples = [
   
 createTempleCard(temples);
 
-const nonutahLink = document.querySelector("#nonutah");
+const oldtempleLink = document.querySelector("#oldtemple");
 
-nonutahLink.addEventListener("click", () => {
-    let nonutah = temples.filter(temple => parseInt(temple.dedicated.split(",")[0]) < 1900);
-    createTempleCard(nonutah);
+oldtempleLink.addEventListener("click", () => {
+    let oldtemple = temples.filter(temple => parseInt(temple.dedicated.split(",")[0]) < 1900);
+    createTempleCard(oldtemple);
 });
 ///////
 
@@ -133,8 +133,7 @@ smalltempleLink.addEventListener("click", () => {
 });
 
 
-
-// these is a shorter form and clear   createTempleCard(temples.filter(temple => !temple.location.includes("Utah")));
+// these is a shorter form and clear way from the codes above  :createTempleCard(temples.filter(temple => !temple.location.includes("Utah")));
 
 
 function createTempleCard(filteredTemples) {
@@ -165,3 +164,31 @@ function createTempleCard(filteredTemples) {
     });
 }
 
+document.querySelectorAll("#menu li a").forEach(link => {
+    link.addEventListener("click", (event) => {
+        event.preventDefault();
+        const filter = event.target.textContent;
+
+        let filtered = temples;
+
+        switch (filter) {
+            case "Old":
+                filtered = temples.filter(temple => parseInt(temple.dedicated) < 1900);
+                break;
+            case "New":
+                filtered = temples.filter(temple => parseInt(temple.dedicated) > 2000);
+                break;
+            case "Large":
+                filtered = temples.filter(temple => temple.area > 90000);
+                break;
+            case "Small":
+                filtered = temples.filter(temple => temple.area < 10000);
+                break;
+            case "Home":
+            default:
+                filtered = temples;
+        }
+
+        renderTemples(filtered);
+    });
+});
