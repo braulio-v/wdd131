@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - English Levels Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=Segoe+UI:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="scripts/main.js" defer></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <h1 class="logo">English Levels Portal</h1>
+        <nav id="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="a1-lessons.html">A1 Lessons</a></li>
+                <li><a href="#">A2 Lessons</a></li>
+                <li><a href="#">B1 Lessons</a></li>
+                <li><a href="#" class="active-link">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content-container">
+        <section class="contact-section">
+            <h2 class="section-title">Get In Touch</h2>
+            <p>We value your feedback and questions. Please use the form below to contact us.</p>
+
+            <form id="contact-form" class="main-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="subject">Subject:</label>
+                <select id="subject" name="subject" required>
+                    <option value="" disabled selected>Select an Inquiry Type</option>
+                </select>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit" class="cta-button">Send Message</button>
+            </form>
+
+            <div id="form-feedback" class="feedback-message"></div>
+            <p class="form-footer-note">Total messages sent from this browser: <span id="submission-count">0</span></p>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>©<span id="currentyear"></span> English Levels Portal. Braulio Villa</p>
+    </footer>
+</body>
+
+</html>
