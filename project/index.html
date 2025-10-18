@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>English Levels Portal - Home</title>
+    <meta name="author" content="Braulio Villa">
+    <meta name="description" content="This is a project about How to learn englihs from home, it has levels such as A1, A2 and B1 so you can learn english with links and matierial all in english.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=Segoe+UI:wght@400;700&display=swap"
@@ -16,8 +18,8 @@
 <body>
     <header class="site-header">
         <h1 class="logo">English Levels Portal</h1>
-        <nav id="main-nav">
-            <ul>
+        <nav id="main-nav" aria-label="Main navigation">
+            <ul> 
                 <li><a href="index.html" class="active-link">Home</a></li>
                 <li><a href="a1-lessons.html" id="a1level">A1 Lessons</a></li>
                 <li><a href="#" id="a2level">A2 Lessons</a></li>
@@ -31,8 +33,15 @@
     <main class="content-container">
         <section class="hero">
             <h2>Explore Your English Journey</h2>
-            <p>Structured learning materials for -A1 (Beginner)-, -A2 (Elementary)-, and -B1 (Intermediate)-
-                levels. Start learning independently today!</p>
+            <p>Structured learning materials for <strong>A1 (Beginner)</strong>, <strong>A2 (Elementary)</strong>, and
+                <strong>B1 (Intermediate)</strong> levels. Start learning independently today!
+            </p>
+            <p>Practice links:
+                <a href="https://test-english.com/listening/a1/" target="_blank" rel="noopener">Listening practice
+                    (A1)</a> •
+                <a href="https://learnenglish.britishcouncil.org/skills/speaking" target="_blank" rel="noopener">Speaking
+                    practice</a>
+            </p>
         </section>
 
         <section class="level-showcase">
@@ -58,8 +67,9 @@
         </section>
     </main>
 
-    <footer class="site-footer">
-        <p>©<span id="currentyear"></span> English Levels Portal. Braulio Villa.</p>
+    <footer>
+        <p><span id="currentyear"></span></p>
+        <p><span id="lastModified"></span></p>
     </footer>
 </body>
 

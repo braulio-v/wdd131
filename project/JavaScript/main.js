@@ -4,6 +4,8 @@ const levels = [
         levelName: "Level A1",
         description: "Beginner: Can understand and use familiar everyday expressions.",
         duration: "Approx. 200 hours",
+        width:"400", 
+        height:"250",
         imageUrl: "images/a1-main.jpg"
     },
     {
@@ -11,6 +13,8 @@ const levels = [
         levelName: "Level A2",
         description: "Elementary: Can understand sentences and frequently used expressions related to areas of most immediate relevance.",
         duration: "Approx. 250 hours",
+        width: "400",
+        height: "250",
         imageUrl: "images/a2-main.jpg"
     },
     {
@@ -18,6 +22,8 @@ const levels = [
         levelName: "Level B1",
         description: "Intermediate: Can understand the main points of clear standard input on familiar matters regularly encountered in work, school, leisure, etc.",
         duration: "Approx. 400 hours",
+        width: "400",
+        height: "250",
         imageUrl: "images/b1-main.jpg"
     },
 ];
@@ -31,11 +37,6 @@ const inquirySubjects = [
 
 // ------------ Initialization ------------------
 document.addEventListener("DOMContentLoaded", () => {
-    const currentYearSpan = document.getElementById("currentyear");
-    if (currentYearSpan) {
-        currentYearSpan.textContent = new Date().getFullYear();
-    }
-
     const page = window.location.pathname.split('/').pop();
 
     if (page === 'index.html' || page === '') {
@@ -58,7 +59,7 @@ function renderLevelCards(filteredLevels) {
     filteredLevels.forEach(level => {
         const cardHTML = `
             <section class="level-card">
-                <img src="${level.imageUrl}" alt="${level.levelName}" loading="lazy">
+                <img src="${level.imageUrl}" alt="${level.levelName}" width= "${level.width} height= "${level.height}" loading="lazy">
                 <h3>${level.levelName}</h3>
                 <p>${level.description}</p>
                 <p class="duration">Duration: ${level.duration}</p>
@@ -160,3 +161,9 @@ function setupContactForm() {
         }, 5000);
     });
 }
+
+const currentYear = new Date().getFullYear();
+document.getElementById("currentyear").textContent = `© ${currentYear} . Braulio Villa . Ecuador`;
+
+const lastModified = document.lastModified;
+document.getElementById("lastModified").textContent = `Last Modified: ${lastModified}`;
