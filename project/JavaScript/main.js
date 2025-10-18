@@ -1,4 +1,3 @@
-//
 const levels = [
     {
         id: 'A1',
@@ -30,14 +29,12 @@ const inquirySubjects = [
     { value: "general", text: "General Inquiry" }
 ];
 
-
-
+// ------------ Initialization ------------------
 document.addEventListener("DOMContentLoaded", () => {
     const currentYearSpan = document.getElementById("currentyear");
     if (currentYearSpan) {
         currentYearSpan.textContent = new Date().getFullYear();
     }
-
 
     const page = window.location.pathname.split('/').pop();
 
@@ -51,14 +48,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-
-
+// --------------- Levels Display -----------------
 function renderLevelCards(filteredLevels) {
     const gallery = document.querySelector(".level-gallery");
     if (!gallery) return;
 
-    gallery.innerHTML = ""; 
-
+    gallery.innerHTML = "";
 
     filteredLevels.forEach(level => {
         const cardHTML = `
@@ -73,22 +68,20 @@ function renderLevelCards(filteredLevels) {
     });
 }
 
-
+// ----------------- Level Filters --------------------
 function setupLevelFilters() {
     document.querySelectorAll("#a1level, #a2level, #b1level").forEach(link => {
         link.addEventListener("click", (event) => {
             event.preventDefault();
-            const filterText = event.target.textContent.split(' ')[0]; 
+            const filterText = event.target.textContent.split(' ')[0];
 
-            
             const filtered = levels.filter(level => level.id === filterText);
 
-            
             if (filtered.length > 0) {
                 renderLevelCards(filtered);
                 document.querySelector(".section-title").textContent = `${filterText} Level Overview`;
             } else {
-                renderLevelCards(levels); 
+                renderLevelCards(levels);
                 document.querySelector(".section-title").textContent = `Levels At a Glance`;
             }
         });
@@ -99,8 +92,7 @@ function setupLevelFilters() {
     });
 }
 
-
-
+// ------------------ Contact Form --------------------
 function populateFormSubjects(subjects) {
     const select = document.getElementById("subject");
     if (!select) return;
@@ -127,48 +119,44 @@ function setupContactForm() {
     if (!form || !feedback) return;
 
     form.addEventListener("submit", (event) => {
-        event.preventDefault(); 
-        let count = Number(localStorage.getItem('formSubmissions')) || 0;
+        event.preventDefault();
+
+        const name = form.elements["name"].value.trim();
+        const email = form.elements["email"].value.trim();
+        const subject = form.elements["subject"].value;
+        const message = form.elements["message"].value.trim();
+
+        if (!name || !email || !subject || !message) {
+            feedback.textContent = "Please fill in all required fields.";
+            feedback.style.display = "block";
+            return;
+        }
+
+        // --- Save submission in localStorage ---
+        let count = Number(localStorage.getItem("formSubmissions")) || 0;
         count++;
-        
-        localStorage.setItem('formSubmissions', count);
+        localStorage.setItem("formSubmissions", count);
 
-        
-        feedback.textContent = `Thank you for your message! Submission #${count} received. We will respond soon.`;
-        feedback.style.display = 'block';
+        let submissions = JSON.parse(localStorage.getItem("submissions") || "[]");
+        submissions.push({
+            id: Date.now(),
+            name,
+            email,
+            subject,
+            message,
+            date: new Date().toLocaleString()
+        });
+        localStorage.setItem("submissions", JSON.stringify(submissions));
+        // ---------------------------------------
 
-        
+        feedback.textContent = `✅ Thank you, ${name}! Submission #${count} received.`;
+        feedback.style.display = "block";
+
         displaySubmissionCount();
-
-        
         form.reset();
+
         setTimeout(() => {
-            feedback.style.display = 'none';
+            feedback.style.display = "none";
         }, 5000);
-    });
-}
-
-
-createLevelCard(); 
-function createLevelCard(levels) {
-    levels.forEach(level => {
-        let card = document.createElement("section");
-        let name = document.createElement("h3");
-        let duration = document.createElement("p");
-        let img = document.createElement("img");
-
-
-        name.textContent = level.levelName;
-        duration.innerHTML = `<span class="label">Duration:</span> ${level.Duration}`;
-        img.setAttribute("src", level.imageUrl);
-        img.setAttribute("alt", `${level.levelName} level`);
-        img.setAttribute("loading", "lazy");
-
-        card.appendChild(name);
-        card.appendChild(duration);
-        card.appendChild(img);
-
-
-        document.querySelector(".level-gallery").appendChild(card);
     });
 }
