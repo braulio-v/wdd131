@@ -39,9 +39,16 @@
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
 
-                <label for="subject">Subject:</label>
+                <label for="subject">Select an inquiry type:</label>
                 <select id="subject" name="subject" required>
-                    <option value="" disabled selected>Select an Inquiry Type</option>
+                    <option value="">Please choose an option &#9662;</option>
+                    <option value="general">General Question</option>
+                    <option value="enrollment">Course Enrollment</option>
+                    <option value="feedback">Lesson Content Feedback</option>
+                    <option value="technical">Technical Issue</option>
+                    <option value="payment">Payment or Access Issue</option>
+                    <option value="collaboration">Collaboration Request</option>
+                    <option value="suggestion">Suggestion for Improvement</option>
                 </select>
 
                 <label for="message">Message:</label>

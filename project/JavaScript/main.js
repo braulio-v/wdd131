@@ -149,7 +149,7 @@ function setupContactForm() {
 }
 
 
-createLevelCard(levels); 
+createLevelCard(); 
 function createLevelCard(levels) {
     levels.forEach(level => {
         let card = document.createElement("section");
@@ -170,7 +170,5 @@ function createLevelCard(levels) {
 
 
         document.querySelector(".level-gallery").appendChild(card);
-
-
     });
 }
